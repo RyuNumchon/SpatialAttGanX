@@ -12,8 +12,6 @@ options = st.multiselect(
     ['Grey hair', 'Red Lips', 'Mustache'],
 )
 
-st.button("Generate")
-
 if st.button('Generate'):
     random_idx = random.randint(1, 2)
     num_features = len(options)
