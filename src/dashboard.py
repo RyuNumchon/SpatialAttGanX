@@ -2,6 +2,8 @@ import streamlit as st
 import os
 import random
 
+st.title("GAN Demo [WIP]")
+st.text("gan with disentangled features")
 
 # pick disentangled features
 options = st.multiselect(
@@ -10,12 +12,15 @@ options = st.multiselect(
     ['Grey hair', 'Red Lips', 'Mustache'],
 )
 
-st.button("Generate", type="primary")
+st.button("Generate")
 
 if st.button('Generate'):
     random_idx = random.randint(1, 2)
     num_features = len(options)
-    input_path = os.path.join(os.getcwd(),f'SpatialAttGanX/src/outputs/disentangled_features/{num_features}/output_{random_idx}.png')
-    output_path = os.path.join(os.getcwd(),f'SpatialAttGanX/src/outputs/disentangled_features/{num_features}/output_{random_idx}.png')
+    st.text("Original Image from GAN")
+    input_path = os.path.join(os.getcwd(),f'/src/outputs/disentangled_features/{num_features}/output_{random_idx}.png')
+    st.text("GAN with Multiple Distangled features")
+    st.text(f"Total: {num_features} disentangled features")
+    output_path = os.path.join(os.getcwd(),f'/src/outputs/disentangled_features/{num_features}/output_{random_idx}.png')
     st.image(input_path)
     st.image(output_path)
