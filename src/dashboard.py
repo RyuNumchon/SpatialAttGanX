@@ -15,8 +15,9 @@ options = st.multiselect(
 if st.button('Generate'):
     random_idx = random.randint(1, 2)
     num_features = len(options)
+    st.image(f'/workspaces/SpatialAttGanX/src/outputs/disentangled_features/{num_features}/output_{random_idx}.png')
     st.text("Original Image from GAN")
-    input_path = os.path.join(os.getcwd(),f'/src/outputs/disentangled_features/{num_features}/output_{random_idx}.png')
+    input_path = os.path.join(os.getcwd(),f'/src/outputs/disentangled_features/{num_features}/input_{random_idx}.png')
     st.text("GAN with Multiple Distangled features")
     st.text(f"Total: {num_features} disentangled features")
     output_path = os.path.join(os.getcwd(),f'/src/outputs/disentangled_features/{num_features}/output_{random_idx}.png')
