@@ -15,6 +15,7 @@ options = st.multiselect(
 if st.button('Generate'):
     random_idx = random.randint(1, 2)
     num_features = len(options)
+    print(os.getcwd())
     st.image(f'src/outputs/disentangled_features/{num_features}/output_{random_idx}.png')
     st.text("Original Image from GAN")
     input_path = f'src/outputs/disentangled_features/{num_features}/input_{random_idx}.png'
