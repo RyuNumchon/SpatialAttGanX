@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import random
+import time
 
 st.title("GAN Demo")
 st.text("gan with 3 disentangled features")
@@ -13,6 +14,15 @@ st.text("gan with 3 disentangled features")
 # )
 
 if st.button('Generate'):
+    progress_text = "Generating faces"
+    my_bar = st.progress(0, text=progress_text)
+
+    for percent_complete in range(100):
+        time.sleep(0.01)
+        my_bar.progress(percent_complete + 1, text=progress_text)
+    time.sleep(2)
+    my_bar.empty()
+
     random_idx = random.randint(1, 2)
     num_features = 3  
 
@@ -25,3 +35,5 @@ if st.button('Generate'):
     st.text("GAN with Multiple Distangled features ['Grey hair', 'Red Lips', 'Mustache']")
     st.text(f"Total: {num_features} disentangled features")
     st.image(output_path)
+
+    
